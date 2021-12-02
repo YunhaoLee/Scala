@@ -41,24 +41,24 @@ object Test12_MyWhile {
       }
     }
     n = 10
-    myWhile2(n >= 1)({
+    myWhile2(n >= 1){ // 代码块外层小括号可省略
       println(n)
       n -= 1
-    })
+    }
     println("==============")
 
     // 4. 用柯里化实现
-    def myWhile3(condition: => Boolean)(op: =>Unit): Unit = {
+    def myWhile3(condition: =>Boolean)(op: =>Unit): Unit = {
       if (condition){
         op
         myWhile3(condition)(op)
       }
     }
     n = 10
-    myWhile3(n >= 1)({
+    myWhile3(n >= 1){
       println(n)
       n -= 1
-    })
+    }
 
   }
 }
